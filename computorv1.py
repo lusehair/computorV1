@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+
+# Ressources: https://www.methodemaths.fr/polynome_second_degre/
+
 import sys
 import re
 

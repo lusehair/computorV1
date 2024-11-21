@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 ## OTHERS TESTS SOURCES ##
 # https://github.com/jeremie-gauthier/ComputorV1/blob/master/computor/tests/results.json
 
