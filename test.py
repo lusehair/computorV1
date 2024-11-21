@@ -41,7 +41,7 @@ from computorv1 import ComputorV1
 import sys
 
 
-def subject_test():
+def subject_tests():
     print("***************************")
     print("***RUNNING SUBJECT TESTS***")
     print("***************************")
@@ -54,7 +54,7 @@ def subject_test():
     print("\n\n")
 
 
-def correction_test():
+def correction_tests():
     print("******************************")
     print("***RUNNING CORRECTION TESTS***")
     print("******************************")
@@ -71,7 +71,7 @@ def correction_test():
     print("\n\n")
 
 
-def additional_test():
+def additionals_tests():
     print("******************************")
     print("***RUNNING ADDITIONAL TESTS***")
     print("******************************")
@@ -100,16 +100,16 @@ def additional_test():
 def main():
     args = sys.argv[1:]
     if not args or "all" in args:
-        subject_test()
-        correction_test()
-        additional_test()
+        subject_tests()
+        correction_tests()
+        additionals_tests()
     else:
         if "subject" in args:
-            subject_test()
+            subject_tests()
         if "correction" in args:
-            correction_test()
+            correction_tests()
         if "additional" in args:
-            additional_test()
+            additionals_tests()
 
 
 if __name__ == "__main__":
