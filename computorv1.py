@@ -60,22 +60,45 @@ def get_values(polynom, degree):
               Example: For "3 X^2 - 4 X + 5", the return value would be [5, -4, 3]
               representing 5 (constant term), -4 (coefficient of X), and 3 (coefficient of X^2).
     """
-    value = 0
-    data = polynom.strip().split(" ")
-    coeff = [0] * (degree + 1)
-    for i, arg in enumerate(data):
-        if arg[0].isdigit():
-            if i >= 1 and data[i - 1] == "-":
-                value = float(data[i]) * (-1)
+    # Initialize a list of zeros where each index represents the degree of X
+    coeffs = [0] * (degree + 1)
+    # Split the polynomial string into tokens separated by spaces
+    tokens = polynom.strip().split(" ")
+    # Initialize the index to loop through tokens
+    i = 0
+    while i < len(tokens):
+        token = tokens[i]
+        # Check if the token is a numerical coefficient
+        if token.replace(".", "", 1).isdigit():
+            # Determine the sign of the coefficient
+            sign = -1 if i > 0 and tokens[i - 1] == "-" else 1
+            # Convert the token to a float and apply the sign
+            value = float(token) * sign
+            i += 1
+            # Skip the '*' operator if present
+            if i < len(tokens) and tokens[i] == "*":
+                i += 1
+            # Check if the next token represents a variable term
+            if i < len(tokens) and tokens[i].startswith("X"):
+                # Handle 'X^n' where n is the exponent
+                if tokens[i].startswith("X^"):
+                    exponent = int(tokens[i][2:])
+                # Handle 'X' which implies an exponent of 1
+                elif tokens[i] == "X":
+                    exponent = 1
+                else:
+                    exponent = 0
+                # Assign the coefficient to the corresponding exponent index
+                coeffs[exponent] = value
+                i += 1
             else:
-                value = float(data[i])
-            degree = (
-                int(data[i + 2][-1])
-                if ((i + 2) < len(data) and data[i + 2][0] == "X")
-                else 0
-            )
-            coeff[degree] = value
-    return coeff
+                # If there's no variable, it's a constant term (exponent 0)
+                coeffs[0] = value
+        else:
+            # Move to the next token if the current one isn't a digit
+            i += 1
+    # Return the list of coefficients
+    return coeffs
 
 
 def format_polynom(coeffs):
@@ -253,12 +276,31 @@ def format_equation(equation):
     return equation
 
 
-def ComputorV1(equation):
-    # if len(sys.argv) != 2:
-    #     print("Usage: python computorv1.py '<equation>'")
-    #     return 1
+def check_expontent(equation):
+    """
+    Checks if any exponents in the equation are greater than 2, less than 0,
+    or if any exponents are floats.
 
-    # equation = format_equation(sys.argv[1])
+    Args:
+        equation (str): The polynomial equation as a string.
+
+    Returns:
+        None: Exits the program if an invalid exponent is found.
+    """
+    exponents = re.findall(r"X\^([-]?\d+\.?\d*)", equation)
+    for exp in exponents:
+        exp_value = float(exp)
+        if not exp_value.is_integer():
+            print(f"Invalid float exponent {exp} detected.")
+            sys.exit(1)
+        exp_value = int(exp_value)
+        if exp_value < 0:
+            print(f"Invalid exponent {exp_value} detected.")
+            sys.exit(1)
+
+
+def ComputorV1(equation):
+    # check_expontent(equation)
     sides = equation.strip().split("=")
 
     if len(sides) != 2:
@@ -270,8 +312,10 @@ def ComputorV1(equation):
     degree = max(get_degree(sides[0]), get_degree(sides[1]))
     eq_left = get_values(sides[0], degree)
     eq_right = get_values(sides[1], degree)
-
+    print(eq_left)
+    print(eq_right)
     eq = list_sub(eq_left, eq_right)
+    # print(eq)
     i = -1
     while len(eq) > 1:
         if eq[i] == 0:
@@ -280,7 +324,6 @@ def ComputorV1(equation):
             break
     print("Reduced form:", format_polynom(eq))
     degree = len(eq) - 1
-    # degree = reduce(eq)
     solve(eq, degree)
 
 
