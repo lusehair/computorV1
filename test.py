@@ -92,9 +92,17 @@ def additionals_tests():
     ComputorV1("0 = 1")
     print("\n\nTEST 07 : Degree 0, any solution")
     ComputorV1("42 = 42")
-    print("\n\nTEST 07 : Degree 0, any solution")
+    print("\n\nTEST 08 : Degree 0, any solution")
     ComputorV1("5 = 5.0")
     print("\n\n")
+    print("\n\nTEST 09 : Degree 2, discriminant < 0, two complex solutions")
+    ComputorV1("5 * X^0 + 3 * X^1 + 3 * X^2 = 1 * X^0 + 0 * X^1")
+    print("\n\n")
+    print("\n\nTEST 10 : Broken Syntax")
+    ComputorV1("2 * X^3 + 4 * X^2 - 6 * X^1 + * +")
+    print("\n\n")
+    print("\n\nTEST 11 : Broken Syntax")
+    ComputorV1("3 * X^2 - 2 * x^2 + 5 *")
 
 
 def main():
