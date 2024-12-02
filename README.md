@@ -26,7 +26,7 @@ It implements mathematical and algorithmic principles to parse, process, and sol
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/computorv1.git
+   git clone https://github.com/lusehair/computorv1.git
    cd computorv1
 
    ```
