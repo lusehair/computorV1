@@ -64,12 +64,12 @@ The program computes solutions based on the polynomial's degree:
 - **Degree 0**: Validates the equality (e.g., \( 3 = 3 \)).
 - **Degree 1**: Solves using:
   \[
-  X = -\frac{c}{b}
+  X = $-\frac{c}{b}$
   \]
 - **Degree 2**: Solves using the quadratic formula:
-  \[
-  X = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-  \]
+  \
+ <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{-b \pm \sqrt{b^2 - 4ac}}{2a" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+  
   - The **discriminant** (\( $\Delta$ = $b^2$ - $4 ac$ \)) determines the nature of roots:
     - \( $\Delta$ > 0 \): Two real solutions.
     - \( $\Delta$ = 0 \): One real solution.
@@ -80,10 +80,10 @@ The program computes solutions based on the polynomial's degree:
 For the equation \( 5X^2 + 3X - 2 = 0 \):
 
 1. \( a = 5, b = 3, c = -2 \)
-2. \( $\Delta$ = b^2 - 4ac = 9 + 40 = 49 \)
-3. Roots: $$
-       X_1 \frac{-3 + \sqrt{49}}{10}, \quad X_2  = \frac{-3 - \sqrt{49}}{10}
-          $$
+2. \( $\Delta$ = $b^2$ - $4ac$ = $9$ + $40$ = $49$ \)
+3. Roots: 
+    <img src="https://latex.codecogs.com/svg.latex?\Large&space; X_1 \frac{-3 + \sqrt{49}}{10}, \quad X_2  = \frac{-3 - \sqrt{49}}{10}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
 4. Result : 
   $$    
   X_1 = 0.4, \quad X_2 = -1
