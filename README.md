@@ -55,7 +55,7 @@ Where \( a, b, c \) are constants.
 
 **Example**:
 Input: `5 * X^2 + 3 * X - 2 = 0`
-Canonical Form: \( 5X^2 + 3X - 2 = 0 \)
+Canonical Form: \( $5X^2$ + $3X$ - $2$ = $0$ \)
 
 ### 3. **Solution Computation**
 
@@ -80,15 +80,52 @@ The program computes solutions based on the polynomial's degree:
 For the equation \( 5X^2 + 3X - 2 = 0 \):
 
 1. \( a = 5, b = 3, c = -2 \)
-2. \( \Delta = b^2 - 4ac = 9 + 40 = 49 \)
-3. Roots:
-   \[
-   X_1 = \frac{-3 + \sqrt{49}}{10}, \quad X_2 = \frac{-3 - \sqrt{49}}{10}
-   \]
-   \[
-   X_1 = 0.4, \quad X_2 = -1
-   \]
+2. \( $\Delta$ = b^2 - 4ac = 9 + 40 = 49 \)
+3. Roots: $$
+       X_1 \frac{-3 + \sqrt{49}}{10}, \quad X_2  = \frac{-3 - \sqrt{49}}{10}
+          $$
+4. Result : 
+  $$    
+  X_1 = 0.4, \quad X_2 = -1
+  $$
 
+
+## Testing
+
+To verify the correctness of `computorv1`, a comprehensive test suite is provided in `test.py`. This script includes a variety of test cases that cover different polynomial equations and edge cases.
+
+### Running the Tests
+
+Execute the test suite using the following command:
+
+```bash
+python3 test.py
 ```
 
+By default, all tests will run. You can also specify which tests to run:
+
+```bash
+python3 test.py subject      # Runs subject tests
+python3 test.py correction   # Runs correction tests
+python3 test.py additional   # Runs additional tests
 ```
+
+### Test Categories
+
+- **Subject Tests**: Tests who comes from subject of this project. 
+- **Correction Tests**: Tests asked during the correction. 
+- **Additional Tests**: Extended tests including more complex and edge case scenarios.
+
+### Features Tested
+
+- **Degree 0 Equations**: Checks for equations with no variables.
+- **Degree 1 Equations**: Solves linear equations.
+- **Degree 2 Equations**: Handles quadratic equations with:
+  - Positive discriminant (two real solutions)
+  - Zero discriminant (one real solution)
+  - Negative discriminant (two complex solutions)
+- **Syntax Handling**: Detects and reports syntax errors.
+- **Unsupported Degrees**: Ensures proper error messages for equations of degree higher than 2.
+
+---
+
