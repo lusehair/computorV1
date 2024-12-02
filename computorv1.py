@@ -128,59 +128,59 @@ def format_polynom(coeffs):
 
 def solve(eq, degree):
     """Solves the polynomial equation based on its degree."""
-    print("Polynomial degree:", degree)  # Display the degree of the polynomial
+    print("Polynomial degree:", degree)  
     if degree > 2:
         print(
             "The polynomial degree is strictly greater than 2, I can't solve."
-        )  # Inform the user that higher degrees are not supported
+        )  
         return
     if degree == 0:
         if eq[0] == 0:
-            print("All real numbers are solutions.")  # Infinite solutions for 0 = 0
+            print("All real numbers are solutions.")  
         else:
             print(
                 "This equation has no solution."
-            )  # No solution if constant term is non-zero
+            )  
         return
     if degree == 1:
         solution = -eq[0] / eq[1]  # Calculate the solution for a linear equation
-        print("The solution is:", format_output(solution))  # Display the solution
+        print("The solution is:", format_output(solution))  
         return
     if degree == 2:
         a = eq[2]  # Coefficient of x^2
         b = eq[1]  # Coefficient of x
         c = eq[0]  # Constant term
         discriminant = b**2 - 4 * a * c  # Compute the discriminant
-        print("Discriminant:", format_output(discriminant))  # Display the discriminant
+        print("Discriminant:", format_output(discriminant)) 
         if discriminant > 0:
             print(
                 "Discriminant is strictly positive, the two solutions are:"
-            )  # Two real solutions exist
+            ) 
             root = discriminant**0.5  # Calculate the square root of the discriminant
             solution1 = (-b + root) / (2 * a)  # First solution
             solution2 = (-b - root) / (2 * a)  # Second solution
-            print(format_output(solution1))  # Display the first solution
-            print(format_output(solution2))  # Display the second solution
+            print(format_output(solution1))  
+            print(format_output(solution2))  
         elif discriminant == 0:
-            solution = -b / (2 * a)  # Single real solution
+            solution = -b / (2 * a)  
             print(
                 "Discriminant is zero, the solution is:"
-            )  # Indicate a single solution
-            print(format_output(solution))  # Display the solution
+            )  
+            print(format_output(solution))  
         else:
             print(
                 "Discriminant is strictly negative, the two complex solutions are:"
-            )  # Two complex solutions exist
+            ) 
             real_part = -b / (2 * a)  # Real part of the complex solutions
             imaginary_part = (-discriminant) ** 0.5 / (
                 2 * a
             )  # Imaginary part of the complex solutions
             print(
                 f"{format_output(real_part)} - i * {format_output(imaginary_part)}"
-            )  # First complex solution
+            )  
             print(
                 f"{format_output(real_part)} + i * {format_output(imaginary_part)}"
-            )  # Second complex solution
+            )
         return
 
 
