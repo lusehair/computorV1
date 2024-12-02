@@ -67,8 +67,8 @@ The program computes solutions based on the polynomial's degree:
   X = $-\frac{c}{b}$
   \]
 - **Degree 2**: Solves using the quadratic formula:
-  \
- <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{-b \pm \sqrt{b^2 - 4ac}}{2a" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
+  <img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
   
   - The **discriminant** (\( $\Delta$ = $b^2$ - $4 ac$ \)) determines the nature of roots:
     - \( $\Delta$ > 0 \): Two real solutions.
@@ -85,9 +85,8 @@ For the equation \( 5X^2 + 3X - 2 = 0 \):
     <img src="https://latex.codecogs.com/svg.latex?\Large&space; X_1 \frac{-3 + \sqrt{49}}{10}, \quad X_2  = \frac{-3 - \sqrt{49}}{10}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
 
 4. Result : 
-  $$    
-  X_1 = 0.4, \quad X_2 = -1
-  $$
+  $X_1 = 0.4, \quad X_2 = -1$
+
 
 
 ## Testing
